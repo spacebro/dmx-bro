@@ -1,0 +1,20 @@
+{
+  "name": "dmx-bro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "spacebro",
+    "dmx"
+  ],
+  "author": "hugohil",
+  "license": "MIT",
+  "dependencies": {
+    "dmx": "^0.2.3",
+    "spacebro-client": "^0.4.8",
+    "standard-settings": "^2.0.3"
+  }
+}

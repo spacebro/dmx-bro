@@ -1,0 +1,74 @@
+{
+  "spacebro": {
+    "host": "127.0.0.1",
+    "port": 8888,
+    "channelName": "dmx-bro",
+    "client": {
+      "name": "dmx-bro",
+      "description": "A spacebro client forwarding dmx signals"
+    }
+  },
+  "dmx": {
+    "universes": {
+      "default": {
+        "output": {
+          "driver": "enttec-usb-dmx-pro",
+          "device": "/dev/cu.usbserial-EN254966"
+        }
+      }
+    }
+  },
+  "events": [
+    { "name": "custom" },
+    {
+      "name": "blackout",
+      "universe": "default",
+      "values": {
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    }, {
+      "name": "white",
+      "universe": "default",
+      "values": {
+        "1": 255,
+        "2": 255,
+        "3": 255
+      }
+    }, {
+      "name": "red",
+      "universe": "default",
+      "values": {
+        "1": 255,
+        "2": 0,
+        "3": 0
+      }
+    }, {
+      "name": "green",
+      "universe": "default",
+      "values": {
+        "1": 0,
+        "2": 255,
+        "3": 0
+      }
+    }, {
+      "name": "blue",
+      "universe": "default",
+      "values": {
+        "1": 0,
+        "2": 0,
+        "3": 255
+      }
+    }, {
+      "name": "delayed-mid",
+      "universe": "default",
+      "delay": 2,
+      "values": {
+        "1": 122,
+        "2": 122,
+        "3": 122
+      }
+    }
+  ]
+}
