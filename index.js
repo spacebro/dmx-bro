@@ -11,7 +11,7 @@ const client = new SpacebroClient({ ...settings.spacebro })
 const dmx = new DMX()
 
 for (const universe in settings.dmx.universes) {
-  console.log(universe)
+  console.log(`Adding universe "${universe}".`)
   dmx.addUniverse(
     universe,
     settings.dmx.universes[universe].output.driver,
@@ -19,6 +19,12 @@ for (const universe in settings.dmx.universes) {
     settings.dmx.universes[universe].output.options
   )
 }
+
+client.on('blackout', (datas) => {
+  for (const universe in settings.dmx.universes) {
+    dmx.updateAll(universe, 0)
+  }
+})
 
 settings.events.forEach((event) => {
   client.on(event.name, (datas) => {
