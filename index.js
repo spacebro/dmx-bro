@@ -20,7 +20,7 @@ for (const universe in settings.dmx.universes) {
   )
 }
 
-client.on('blackout', (datas) => {
+client.on('blackout', () => {
   for (const universe in settings.dmx.universes) {
     dmx.updateAll(universe, 0)
   }
