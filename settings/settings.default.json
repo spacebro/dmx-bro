@@ -61,6 +61,24 @@
         "2": 122,
         "3": 122
       }
+    }, {
+      "name": "white-fadein-fadeout",
+      "universe": "default",
+      "values": [
+        {
+          "values": { "1": 0, "2": 0, "3": 0 },
+          "duration": 10
+        }, {
+          "values": { "1": 255, "2": 255, "3": 220 },
+          "duration": 200,
+          "ease": "inQuad"
+        }, {
+          "delay": 1,
+          "values": { "1": 0, "2": 0, "3": 0 },
+          "duration": 500,
+          "ease": "outQuad"
+        }
+      ]
     }
   ]
 }

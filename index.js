@@ -36,7 +36,16 @@ settings.events.forEach((event) => {
     if (delay) console.log(`waiting ${delay}s...`)
 
     setTimeout(() => {
-      dmx.update(universe, values)
+      if (Array.isArray(values)) {
+        const animation = new dmx.animation()
+        values.forEach((step) => {
+          step.delay && animation.delay((step.delay * 1000))
+          animation.add(step.values, step.duration, { easing: (step.ease || 'linear') })
+        })
+        animation.run(dmx.universes[universe], () => { console.log(`"${event.name}" animation done.`) })
+      } else {
+        dmx.update(universe, values)
+      }
     }, (delay * 1000))
   })
 })
