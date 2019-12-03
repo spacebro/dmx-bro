@@ -6,7 +6,7 @@ const settings = standardSettings.getSettings()
 const DMX = require('dmx')
 const { SpacebroClient } = require('spacebro-client')
 
-const client = new SpacebroClient({ ...settings.spacebro })
+const client = new SpacebroClient()
 
 const dmx = new DMX()
 
