@@ -20,6 +20,20 @@ for (const universe in settings.dmx.universes) {
   )
 }
 
+// check errors and opens
+for (const universe in settings.dmx.universes) {
+  dmx.universes[universe].dev.on('error', err => console.error(err))
+  dmx.universes[universe].dev.on('open', err => {
+    console.log('Serial is open')
+
+    // init with blackout
+    for (const universe in settings.dmx.universes) {
+      console.log(`Universe "${universe}": initial blackout`)
+      dmx.updateAll(universe, 0)
+    }
+  })
+}
+
 client.on('blackout', () => {
   for (const universe in settings.dmx.universes) {
     dmx.updateAll(universe, 0)
